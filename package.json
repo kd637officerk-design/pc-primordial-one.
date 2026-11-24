@@ -1,0 +1,48 @@
+{
+  "name": "adv-001-media-deck",
+  "version": "1.0.0",
+  "description": "ADV-001 Windows desktop media deck with bundled wallpapers, DIY themes, local media import and timer.",
+  "main": "main.js",
+  "author": "ADV-001",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^34.3.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.adv001.mediadeck",
+    "productName": "ADV-001",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/ADV-001-icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "ADV-001"
+    }
+  }
+}
